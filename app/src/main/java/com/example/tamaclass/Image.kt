@@ -35,7 +35,7 @@ class Image(private val imageView: ImageView) {
     }
     fun feedImage() {
         imageView.apply {
-            setImageResource(R.drawable.feed) // replace with your feed image resource
+            setImageResource(R.drawable.feed) // Getting the image
             visibility = View.VISIBLE
             postDelayed({ visibility = View.GONE }, 5000)
             cancelGifShowing()
@@ -44,7 +44,7 @@ class Image(private val imageView: ImageView) {
 
     fun cleanImage() {
         imageView.apply {
-            setImageResource(R.drawable.clean) // replace with your clean image resource
+            setImageResource(R.drawable.clean) // Getting the image
             visibility = View.VISIBLE
             postDelayed({ visibility = View.GONE }, 5000)
             cancelGifShowing()
@@ -53,7 +53,7 @@ class Image(private val imageView: ImageView) {
 
     fun playImage() {
         imageView.apply {
-            setImageResource(R.drawable.play) // replace with your play image resource
+            setImageResource(R.drawable.play) // Getting the image
             visibility = View.VISIBLE
             postDelayed({ visibility = View.GONE }, 5000)
             cancelGifShowing()

@@ -16,7 +16,7 @@ private lateinit var gifImageHandler: Image
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var happinessTextView: TextView
+    private lateinit var happinesst: TextView
     private lateinit var healthTextView: TextView
     private val tamagotchiManager = TamagotchiManager()
     private lateinit var feedImageHandler: Image
@@ -25,20 +25,22 @@ class MainActivity : AppCompatActivity() {
     private lateinit var gifImageView: ImageView
     private lateinit var gifImageHandler: Image
 
-    private var updateIntervalMillis = 3000L // 3 seconds
+    private var updateIntervalMillis = 3000L // Changing variables every 3 seconds
     private val handler = Handler(Looper.getMainLooper())
     private val updateRunnable = object : Runnable {
         override fun run() {
+            //Dfecreasing happiness and health
             tamagotchiManager.decreaseStat("happiness")
             tamagotchiManager.decreaseStat("health")
             updateTextViews()
 
-            // Check if happiness reaches zero
-            if (tamagotchiManager.happiness <= 0) {
-                // Show the appropriate image and message
-                val runImageView = findViewById<ImageView>(R.id.run)
+
+            if (tamagotchiManager.happiness <= 0)// Sees if happiness has reached zero
+            {
+
+                val runImageView = findViewById<ImageView>(R.id.run)// Shows run image with the message
                 runImageView.visibility = View.VISIBLE
-                happinessTextView.text = "Your dog left you"
+                happinesst.text = "Your dog left you"
             } else {
                 val runImageView = findViewById<ImageView>(R.id.run)
                 runImageView.visibility = View.INVISIBLE
@@ -48,10 +50,11 @@ class MainActivity : AppCompatActivity() {
 
 
 
-            // Check if health reaches zero
-            if (tamagotchiManager.health <= 0) {
-                // Show the appropriate image and message
-                val sleepImageView = findViewById<ImageView>(R.id.sleeo)
+
+            if (tamagotchiManager.health <= 0) // Checks if health reaches zero
+            {
+
+                val sleepImageView = findViewById<ImageView>(R.id.sleeo) // Shows the sleep image
                 sleepImageView.visibility = View.VISIBLE
                 healthTextView.text = "Your dog died"
             } else {
@@ -60,7 +63,7 @@ class MainActivity : AppCompatActivity() {
 
             }
 
-            // Repeat the update after the specified interval
+
             handler.postDelayed(this, updateIntervalMillis)
         }
     }
@@ -70,7 +73,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        happinessTextView = findViewById(R.id.HAT)
+        happinesst = findViewById(R.id.HAT)
         healthTextView = findViewById(R.id.HET)
         val feedButton: Button = findViewById(R.id.feed)
         val cleanButton: Button = findViewById(R.id.clean)
@@ -130,7 +133,7 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun updateTextViews() {
-        happinessTextView.text = tamagotchiManager.getHappiness()
+        happinesst.text = tamagotchiManager.getHappiness()
         healthTextView.text = tamagotchiManager.getHealth()
     }
 
