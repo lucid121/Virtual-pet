@@ -82,26 +82,16 @@ class MainActivity : AppCompatActivity() {
         val cleanButton: Button = findViewById(R.id.clean)
         val playButton: Button = findViewById(R.id.play)
 
-        val runImageView = findViewById<ImageView>(R.id.run)
-
-
-
-
 
 
         val feedImageView = findViewById<ImageView>(R.id.feedi).apply { visibility = View.INVISIBLE }
         val cleanImageView = findViewById<ImageView>(R.id.cleani).apply { visibility = View.INVISIBLE }
         val playImageView = findViewById<ImageView>(R.id.playi).apply { visibility = View.INVISIBLE }
         gifImageView = findViewById(R.id.imageView)
-        val galaxysound:  MediaPlayer = MediaPlayer.create(this, R.raw.galaxymusic)
+        val galaxysound:  MediaPlayer = MediaPlayer.create(this, R.raw.galaxymusic)//Creating the variable for sound
         if (gifImageView.visibility == View.VISIBLE){
-            galaxysound.start()
+            galaxysound.start()//Sound only plays only when the galaxy is seen.
         }
-
-
-
-
-
 
         feedImageHandler = Image(feedImageView)
         cleanImageHandler = Image(cleanImageView)
@@ -109,12 +99,18 @@ class MainActivity : AppCompatActivity() {
         gifImageHandler = Image(gifImageView)
         val soundPlayer = SoundPlayer(this)
 
+
+        // Set onClickListener for the clean/feed/play button to increase
+        //  stat, update TextViews, make image actions,
+        // and play sounds below
         cleanButton.setOnClickListener {
             tamagotchiManager.increaseStat("happiness")
             updateTextViews()
             cleanImageHandler.cleanImage()
             soundPlayer.playSound(R.raw.clean)
         }
+
+
         feedButton.setOnClickListener {
             tamagotchiManager.increaseStat("health")
             updateTextViews()
