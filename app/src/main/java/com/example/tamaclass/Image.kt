@@ -24,6 +24,8 @@ class Image(private val imageView: ImageView) {
         handler.postDelayed(gifShowingRunnable!!, displayDuration)
     }
 
+
+
     private fun hideGif() {
         imageView.setImageResource(0)
         imageView.visibility = View.GONE

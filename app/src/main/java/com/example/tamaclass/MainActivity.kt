@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.postDelayed
 import pl.droidsonroids.gif.GifImageView
 private lateinit var gifImageView: GifImageView
 private lateinit var gifImageHandler: Image
@@ -68,9 +69,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val handler = Handler(Looper.getMainLooper())
 
 
         happinesst = findViewById(R.id.HAT)
